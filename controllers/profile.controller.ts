@@ -1,9 +1,18 @@
 import { Router, Request, Response } from 'express'
+import BaseController from './base/base.controller';
 
-const router: Router = Router()
+export default class ProfileController extends BaseController {
 
-router.get('/', (req: Request, res: Response) => {
-    res.render('profile')
-})
+    constructor() {
+        super('/profile')
+        this.initRoutes()
+    }
 
-export const ProfileController: Router = router
+    private initRoutes(): void {
+        this.router.get(this.path, this.Profile)
+    }
+
+    private Profile = (req: Request, res: Response) => {
+        res.render('profile')
+    }
+}
