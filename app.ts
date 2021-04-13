@@ -24,7 +24,7 @@ export default class App {
         })
     }
 
-    // we arent using middlewares yet.
+    // we arent using middlewares yet. think bodyparser, session, cookieparser etc here
     private initMiddlewares(): void {
         // throw new Error('Method not implemented.')
     }
