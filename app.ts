@@ -17,6 +17,7 @@ export default class App {
     private initViewEngine(): void {
         this.app.set('view engine', 'ejs')
         this.app.set('views', path.join(__dirname, 'views'))
+        this.app.use(express.static(path.join(__dirname, 'public')))
     }
     private initControllers(controllers: any): void {  
         controllers.forEach((controller: any) => {

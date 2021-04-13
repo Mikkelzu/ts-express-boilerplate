@@ -1,8 +1,10 @@
 import { Router, Response, Request } from 'express'
 import BaseController from './base/base.controller'
+import ReadController from './base/read.controller'
 
-export default class HomeController extends BaseController {
+export default class HomeController extends ReadController {
 
+    public data: any;
     constructor() {
         super('/')
 
@@ -15,7 +17,7 @@ export default class HomeController extends BaseController {
     }
 
     private Index = (req: Request, res: Response) => {
-        res.render('Home/index')
+        res.render('Home/index', { loading: this.isLoading, data: this.data})
     }
 
     private About = (req: Request, res: Response) => {

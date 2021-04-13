@@ -4,6 +4,24 @@
     <%- include ('../partials/head') %>
 
 <body>
-    <h1>welcome</h1>
+    <%- include ('../partials/_navbar.ejs') %>
+    <div class="container">
+        <h1>welcome</h1>
+
+        <div class="row">
+            <div class="col-6">
+                <% if (loading) { %>
+                    <div class="loader">Loading...</div>
+                <% } %>
+                
+                <% data.forEach((quote) => { %>
+                    <div class="quote-wrapper">
+                        <span class="quote-text"> <%= quote.text %> </span>
+                        <span class="quote-author"> - <%= quote.author %> </span>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
