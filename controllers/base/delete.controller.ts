@@ -9,7 +9,7 @@ export default class DeleteController extends HttpClient implements IDeleteServi
 
     public data: any
     constructor(path: any) {
-        super('https://type.fit/api/')
+        super(`${process.env.API_URL}`)
 
         if (path != null) {
             this.path = path

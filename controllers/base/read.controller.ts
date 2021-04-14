@@ -10,7 +10,7 @@ export default class ReadController extends HttpClient implements IReadService {
     public isLoading: boolean = true;
     public data: any
     constructor(path: any) {
-        super('https://type.fit/api/')
+        super(`${process.env.API_URL}`)
 
         if (path != null) {
             this.path = path

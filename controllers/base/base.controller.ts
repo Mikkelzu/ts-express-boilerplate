@@ -7,7 +7,5 @@ export default class BaseController {
         if (path != null) {
             this.path = path
         }
-        
     }
-
 }

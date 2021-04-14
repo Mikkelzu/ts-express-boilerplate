@@ -1,3 +1,4 @@
+require('dotenv').config()
 import App from './app'
 import HomeController from './controllers/home.controller'
 import ProfileController from './controllers/profile.controller'

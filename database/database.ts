@@ -13,12 +13,12 @@ export default class Database {
     }
 
     public createConnectionToDatabase(): any {
-        // this is all temp ignore it.
+        // Use the .env file to set your database connection details. no need to edit it here.
         return this.connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'test'
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME
         })
     }
 

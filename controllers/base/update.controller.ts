@@ -10,7 +10,7 @@ export default class UpdateController extends HttpClient implements IUpdateServi
 
     public data: any
     constructor(path: any) {
-        super('https://type.fit/api/')
+        super(`${process.env.API_URL}`)
 
         if (path != null) {
             this.path = path
