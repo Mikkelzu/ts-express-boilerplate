@@ -16,9 +16,11 @@ export default class ProfileController extends ReadController {
 
     private Profile = (req: Request, res: Response) => {
 
-        this.data = this.readService.getSinglebyId(4)
+        this.data = this.getSingleById(6)
 
-        res.render('Profile/index', {data: this.data})
+        res.render('Profile/index', {
+            data: this.data
+        })
     }
 
     private EditProfile = (req: Request, response: Response) => {

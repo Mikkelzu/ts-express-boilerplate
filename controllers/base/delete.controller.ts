@@ -1,18 +1,27 @@
 import { Router } from 'express'
-import DeleteService from './services/delete.service'
+import HttpClient from '../../http/http'
+import IDeleteService from './services/delete.interface'
 
-export default class DeleteController {
+export default class DeleteController extends HttpClient implements IDeleteService{
 
     public path: any = '/'
     public router: Router = Router()
-    public createService: DeleteService = new DeleteService()
 
     public data: any
     constructor(path: any) {
+        super('https://type.fit/api/')
 
         if (path != null) {
             this.path = path
         }
+    }
+
+    deleteOneById(id: number) {
+        return id;
+    }
+
+    deleteMany(items: Array<any>) {
+        return items;
     }
 
 }

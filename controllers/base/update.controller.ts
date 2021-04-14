@@ -1,18 +1,29 @@
 import { Router } from 'express'
-import UpdateService from './services/update.service'
+import { idText } from 'typescript'
+import HttpClient from '../../http/http'
+import IUpdateService from './services/update.interface'
 
-export default class DeleteController {
+export default class UpdateController extends HttpClient implements IUpdateService {
 
     public path: any = '/'
     public router: Router = Router()
-    public createService: UpdateService = new UpdateService()
 
     public data: any
     constructor(path: any) {
+        super('https://type.fit/api/')
 
         if (path != null) {
             this.path = path
         }
     }
+
+    updateOneById(id: number) {
+        return id
+    }
+
+    updateMany(items: Array<any>) {
+        return items
+    }
+
 
 }

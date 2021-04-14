@@ -1,18 +1,27 @@
 import { Router } from 'express'
-import CreateService from './services/create.service'
-
-export default class CreateController {
+import HttpClient from '../../http/http'
+import ICreateService from './services/create.interface'
+export default class CreateController extends HttpClient implements ICreateService {
 
     public path: any = '/'
     public router: Router = Router()
-    public createService: CreateService = new CreateService()
 
     public data: any
     constructor(path: any) {
 
+        super('https://type.fit/api/')
+
         if (path != null) {
             this.path = path
         }
+    }
+
+    createOne(item: any) {
+        return item
+    }
+
+    createMany(items: Array<any>) {
+        return items
     }
 
 }
