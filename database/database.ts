@@ -8,9 +8,7 @@ import * as mysql from 'mysql'
 export default class Database {
 
     public connection: any;
-    constructor() {
-
-    }
+    constructor() {}
 
     public createConnectionToDatabase(): any {
         // Use the .env file to set your database connection details. no need to edit it here.
@@ -22,11 +20,11 @@ export default class Database {
         })
     }
 
-    public connect(): void {
-        this.connection.connect()
+    public connect(fn: any): void {
+        this.connection.connect(fn)
     }
 
-    public disconnect(): void {
-        this.connection.end()
+    public disconnect(fn: any): void {
+        this.connection.end(fn)
     }
 }
