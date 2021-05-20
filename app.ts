@@ -12,6 +12,13 @@ export default class App {
         this.initViewEngine()
         this.initMiddlewares()
         this.initControllers(controllers)
+
+        /**
+         * Create a basic 404 router
+         */
+        this.app.get('*', (req, res) => {
+            res.render('Base/404PageNotFound')
+        })
     }
 
     private initViewEngine(): void {
